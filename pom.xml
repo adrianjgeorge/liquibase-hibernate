@@ -8,8 +8,7 @@
 
     <name>Liquibase Hibernate Integration</name>
     <description>Liquibase extension for hibernate integration including generating changesets based on changed
-        hibernate mapping files
-    </description>
+        hibernate mapping files</description>
     <url>http://liquibase.jira.com/wiki/display/CONTRIB/Hibernate+Integration</url>
 
     <organization>
@@ -29,8 +28,7 @@
     </issueManagement>
 
     <scm>
-        <url>https://liquibase.jira.com/svn/CONTRIB/trunk/hibernate/trunk</url>
-        <developerConnection>scm:svn:https://liquibase.jira.com/svn/CONTRIB/trunk/hibernate/trunk</developerConnection>
+        <developerConnection>scm:git|ssh://git@github.com/adrianjgeorge/liquibase-hibernate.git</developerConnection>
     </scm>
 
     <developers>
@@ -178,47 +176,44 @@
 
     <distributionManagement>
         <repository>
-            <uniqueVersion>false</uniqueVersion>
-            <id>sonatype-nexus-staging</id>
-            <name>Sonatype Production Repository</name>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
-
+            <id>radar-nexus-repo</id>
+            <name>Internal Releases</name>
+            <url>http://dev-hudson1.sat.intensive.int:8071/nexus/content/repositories/releases</url>
         </repository>
         <snapshotRepository>
-            <uniqueVersion>false</uniqueVersion>
-            <id>sonatype-nexus-snapshots</id>
-            <name>Sontatype Snapshot Repository</name>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+            <id>radar-nexus-snapshot-repo</id>
+            <name>Internal Snapshots</name>
+            <url>http://dev-hudson1.sat.intensive.int:8071/nexus/content/repositories/snapshots</url>
         </snapshotRepository>
     </distributionManagement>
 
-    <profiles>
-        <profile>
-            <id>release-sign-artifacts</id>
-            <activation>
-                <property>
-                    <name>performRelease</name>
-                    <value>true</value>
-                </property>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-gpg-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>sign-artifacts</id>
-                                <phase>verify</phase>
-                                <goals>
-                                    <goal>sign</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
+    <!--<profiles>-->
+        <!--<profile>-->
+            <!--<id>release-sign-artifacts</id>-->
+            <!--<activation>-->
+                <!--<property>-->
+                    <!--<name>performRelease</name>-->
+                    <!--<value>true</value>-->
+                <!--</property>-->
+            <!--</activation>-->
+            <!--<build>-->
+                <!--<plugins>-->
+                    <!--<plugin>-->
+                        <!--<groupId>org.apache.maven.plugins</groupId>-->
+                        <!--<artifactId>maven-gpg-plugin</artifactId>-->
+                        <!--<executions>-->
+                            <!--<execution>-->
+                                <!--<id>sign-artifacts</id>-->
+                                <!--<phase>verify</phase>-->
+                                <!--<goals>-->
+                                    <!--<goal>sign</goal>-->
+                                <!--</goals>-->
+                            <!--</execution>-->
+                        <!--</executions>-->
+                    <!--</plugin>-->
+                <!--</plugins>-->
+            <!--</build>-->
+        <!--</profile>-->
+    <!--</profiles>-->
 
 </project>
